@@ -1,0 +1,4 @@
+---
+environments:
+  local:
+    server: local
