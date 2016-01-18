@@ -54,6 +54,7 @@ function _drubone_infrastructure_site_config($site = NULL) {
             foreach ($environment['sites'] as $group_name => $group) {
               foreach ($group['urls'] as $url) {
                 if ($url == $site) {
+                  $group['group_name'] = $group_name;
                   return $group;
                 }
               }
