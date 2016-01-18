@@ -46,7 +46,7 @@ function _drubone_infrastructure_get_project_params($project) {
 function _drubone_infrastructure_site_config($site = NULL) {
   if (!$site) {
     // TODO: use main site if executed with drush.
-    $site = $_SERVER['HTTP_HOST'];
+    $site = current(explode(':', rtrim($_SERVER['HTTP_HOST'], '.')));
     foreach (_drubone_config_get(array('infrastructure', 'projects')) as $project_id => $project) {
       if (isset($project['instances'])) {
         foreach ($project['instances'] as $clone_name => $clone) {
