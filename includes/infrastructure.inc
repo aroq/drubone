@@ -76,8 +76,16 @@ function _drubone_infrastructure_environment_config($env) {
 }
 
 function _drubone_infrastructure_project_config($env, $project, $instance) {
+  $databases = _drubone_config_get(array('infrastructure', 'databases'));
   $config = _drubone_config_get(array('infrastructure', 'projects', $project, 'instances', $instance, 'environments', $env), array());
   $config['params'] = _drubone_infrastructure_get_project_params($project);
+  foreach ($config['databases'] as &$db_group) {
+   foreach ($db_group as $key => &$value) {
+      if (is_string($value) && isset($databases[$value])) {
+        $value = $databases[$value];
+      }
+    }
+  }
   return $config;
 }
 
