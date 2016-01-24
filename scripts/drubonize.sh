@@ -18,10 +18,6 @@ echo "Copying drush aliases for dev."
 cp -f drush/local.aliases.drushrc.php drush/dev.aliases.drushrc.php
 
 cd ${CWD}
-if [ ! -d 'drubone.config' ]; then
-fi
-
-cd ${CWD}
 if [ ! -d "drubone.config" ]; then
   echo "Copying Drubone.config."
   cp -fR drubone/templates/drubone.config .
