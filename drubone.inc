@@ -26,7 +26,7 @@ function _drubone_get_config_engines() {
 function _drubone_load_component($name = '', $params = array(), $include_once = TRUE) {
   $config = &_drubone_config();
   if (!$config) {
-    $filepath = DRUBONE_DRUPAL_ROOT . DIRECTORY_SEPARATOR . DRUBONE_CONFIG_DIR . DIRECTORY_SEPARATOR . 'config.inc';
+    $filepath = DRUBONE_CONFIG_DIR_FULL . '/' . 'config.inc';
     if (is_file($filepath)) {
       $config = include $filepath;
     }
@@ -52,15 +52,15 @@ function _drubone_load_component($name = '', $params = array(), $include_once = 
 function _drubone_get_config_files($name, $file_suffix = '.config.inc', $directories = array(), $file_patterns = array()) {
   $includes = array();
   if (!$directories) {
-    $directories = array(DRUBONE_DIR . DIRECTORY_SEPARATOR . 'config', DRUBONE_CONFIG_DIR);
+    $directories = array(DRUBONE_DIR_FULL . '/config', DRUBONE_CONFIG_DIR_FULL);
   }
   if (!$file_patterns) {
     $file_patterns = array('local.');
   }
   foreach ($directories as $directory) {
-    $files[] = DRUBONE_DRUPAL_ROOT . DIRECTORY_SEPARATOR . $directory . DIRECTORY_SEPARATOR . $name . $file_suffix;
+    $files[] = $directory . '/' . $name . $file_suffix;
     foreach($file_patterns as $pattern) {
-      $files[] = DRUBONE_DRUPAL_ROOT . DIRECTORY_SEPARATOR . $directory . DIRECTORY_SEPARATOR . $pattern . $name . $file_suffix;
+      $files[] = $directory . '/' . $pattern . $name . $file_suffix;
     }
   }
   foreach ($files as $file) {
@@ -92,7 +92,7 @@ function _drubone_config_get($arg, $default = NULL) {
 }
 
 function _drubone_include($filename, $params = array()) {
-  $filepath = DRUBONE_DRUPAL_ROOT . DIRECTORY_SEPARATOR . DRUBONE_DIR . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . $filename;
+  $filepath = DRUBONE_DIR_FULL . '/includes/' . $filename;
   if (is_file($filepath)) {
     return include $filepath;
   }

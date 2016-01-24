@@ -35,12 +35,12 @@ class DruboneYamlConfigLoader extends FileLoader
 function _drubone_yaml_get_config($name, $directories = array(), $file_patterns = array()) {
   $config = &_drubone_config();
   if (!$directories) {
-    $directories = array(DRUBONE_DIR . '/config', DRUBONE_CONFIG_DIR);
+    $directories = array(DRUBONE_DIR_FULL . '/config', DRUBONE_CONFIG_DIR_FULL);
   }
   if (!$file_patterns) {
     $file_patterns = array('local');
   }
-  $cachePath = DRUBONE_DRUPAL_ROOT . DIRECTORY_SEPARATOR . $config['generated_config_path'] . DIRECTORY_SEPARATOR . "$name.drubone.config.inc";
+  $cachePath = DRUBONE_DRUPAL_ROOT . '/' . $config['generated_config_path'] . '/' . "$name.drubone.config.inc";
 
   // the second argument indicates whether or not you want to use debug mode
   $cache = new ConfigCache($cachePath, TRUE);
@@ -52,7 +52,6 @@ function _drubone_yaml_get_config($name, $directories = array(), $file_patterns 
   if (!$cache->isFresh()) {
     foreach ($directories as $directory) {
       $files = array();
-      $directory = DRUBONE_DRUPAL_ROOT . DIRECTORY_SEPARATOR . $directory;
       $locator = new FileLocator(array($directory));
       $loaderResolver = new LoaderResolver(array(new DruboneYamlConfigLoader($locator)));
       $delegatingLoader = new DelegatingLoader($loaderResolver);
