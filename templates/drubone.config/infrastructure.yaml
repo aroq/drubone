@@ -1,0 +1,62 @@
+---
+servers:
+  local:
+    params:
+  main:
+    alias:
+      remote-host: PLACEHOLDER.REMOTE.HOST
+      remote-user: PLACEHOLDER.REMOTE.USER
+      path-aliases:
+        %dump-dir: /tmp
+
+databases:
+  default: &databases.default
+    host: localhost
+    password:
+    port:
+    driver: mysql
+    prefix:
+  local:
+    <<: *databases.default
+  dev: &databases.dev
+    <<: *databases.default
+    username: PLACEHOLDER.DEV.DATABASE.USER
+    database: PLACEHOLDER.DEV.DATABASE.DB
+    password: PLACEHOLDER.DEV.DATABASE.PASSWORD
+
+environments:
+  local:
+    server: local
+  dev:
+    server: main
+    alias:
+      root: PLACEHOLDER:REMOTE:DEV:DOCROOT:PATH
+
+projects:
+  PLACEHOLDER:PROJECT1:
+    params:
+      path: PLACEHOLDER:PROJECT1:PATH
+  PLACEHOLDER:PROJECT2:
+    params:
+      path: PLACEHOLDER:PROJECT2:PATH
+    parent: PLACEHOLDER:PROJECT1
+    instances:
+      master:
+        environments:
+          local:
+            databases:
+              default:
+                default: local
+            sites:
+              main:
+                urls:
+                  - PLACEHOLDER:LOCAL:HOST
+          dev:
+            databases:
+              default:
+                default: *databases.dev
+            sites:
+              main:
+                urls:
+                  - PLACEHOLDER:REMOTE:HOST
+
