@@ -21,6 +21,7 @@ cd ${CWD}
 if [ ! -d "drubone.config" ]; then
   echo "Copying Drubone.config."
   cp -fR drubone/templates/drubone.config .
+  cp -fR drubone/templates/git/drubone.config/.gitignore drubone.config
 fi
 
 cd ${CWD}

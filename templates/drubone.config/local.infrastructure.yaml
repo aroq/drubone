@@ -1,0 +1,14 @@
+---
+servers:
+  main:
+    alias:
+      remote-user: PLACEHOLDER.REMOTE.USER
+  extra:
+    alias:
+      remote-user: PLACEHOLDER.REMOTE.USER
+
+databases:
+  local:
+    database: PLACEHOLDER.REMOTE.DB
+    username: PLACEHOLDER.REMOTE.USER
+    password: PLACEHOLDER.REMOTE.PASSWORD
