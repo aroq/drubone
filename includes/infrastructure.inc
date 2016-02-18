@@ -80,9 +80,22 @@ function _drubone_infrastructure_project_config($env, $project, $instance) {
   $config = _drubone_config_get(array('infrastructure', 'projects', $project, 'instances', $instance, 'environments', $env), array());
   $config['params'] = _drubone_infrastructure_get_project_params($project);
   foreach ($config['databases'] as &$db_group) {
-   foreach ($db_group as $key => &$value) {
+    foreach ($db_group as $key => &$value) {
       if (is_string($value) && isset($databases[$value])) {
         $value = $databases[$value];
+      }
+    }
+
+    unset($value);
+  }
+
+  if (isset($config['params']['url_patterns'])) {
+    foreach ($config['params']['url_patterns'] as $key => $value) {
+      if (!empty($value['patterns'])) {
+        $patterns = implode("\n", $value['patterns']);
+        if (_drubone_match_path($_GET['q'], $patterns)) {
+          $config['params'] = array_replace_recursive($config['params'], $value['params']);
+        }
       }
     }
   }

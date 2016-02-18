@@ -144,4 +144,27 @@ function &_drubone_array_get_nested_value(array &$array, array $parents, &$key_e
   return $ref;
 }
 
+function _drubone_match_path($path, $patterns) {
+  static $regexps = array();
+
+  if (!isset($regexps[$patterns])) {
+    // Convert path settings to a regular expression.
+    // Therefore replace newlines with a logical or, /* with asterisks and the
+    // <front> with the frontpage.
+    $to_replace = array(
+      // Newlines.
+      '/(\r\n?|\n)/',
+      // Asterisks.
+      '/\\\\\*/',
+    );
+    $replacements = array(
+      '|',
+      '.*',
+    );
+    $patterns_quoted = preg_quote($patterns, '/');
+    $regexps[$patterns] = '/^(' . preg_replace($to_replace, $replacements, $patterns_quoted) . ')$/';
+  }
+  return (bool) preg_match($regexps[$patterns], $path);
+}
+
 _drubone_load_component('drubone');
