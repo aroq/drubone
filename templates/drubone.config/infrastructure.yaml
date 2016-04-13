@@ -38,6 +38,7 @@ projects:
       path: PLACEHOLDER:PROJECT1:PATH
   PLACEHOLDER:PROJECT2:
     params:
+      site_dir_name_prefix: PLACEHOLDER:PROJECT1:DIRNAME_PREFIX
       path: PLACEHOLDER:PROJECT2:PATH
     parent: PLACEHOLDER:PROJECT1
     instances:
