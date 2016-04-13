@@ -28,6 +28,7 @@ $drush_aliases = function($domains, $env, $environments, $servers) {
     $aliases[$prefix] = array(
       'uri' => $domain['uri'],
       'path-aliases' => array(
+
       ),
       'root' => DRUBONE_DRUPAL_ROOT,
     );

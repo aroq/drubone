@@ -8,12 +8,18 @@ function _drubone_infrastructure_get_sites() {
   static $sites = array();
   if (!$sites) {
     foreach (_drubone_config_get(array('infrastructure', 'projects')) as $project_id => $project) {
+      if (isset($project['params']['site_dir_name_prefix'])) {
+        $project_dir_name = $project['params']['site_dir_name_prefix'];
+      }
+      else {
+        $project_dir_name = $project_id;
+      }
       if (isset($project['instances'])) {
         foreach ($project['instances'] as $clone_name => $clone) {
           foreach ($clone['environments'] as $env => $environment) {
             foreach ($environment['sites'] as $group_name => $group) {
               foreach ($group['urls'] as $url) {
-                $sites[$url] = $project_id . _drubone_config_get(array('infrastructure', 'site_name_separator'), '.') . $clone_name;
+                $sites[$url] = $project_dir_name . _drubone_config_get(array('infrastructure', 'site_name_separator'), '.') . $clone_name;
               }
             }
           }
