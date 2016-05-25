@@ -59,11 +59,9 @@ function _instance_settings_init_params($site_path) {
 
   // TODO: Allow override here.
   $default_values['settings_dirs'] = (array(
-//    DRUPAL_ROOT . '/' . INSTANCE_SETTINGS_CONTRIB_PATH . '/instance_settings/settings',
+    DRUBONE_ROOT . '/code/common/config/settings',
     DRUBONE_ROOT . '/code/all/config/settings',
     DRUPAL_ROOT . '/sites/all/config/settings',
-    DRUPAL_ROOT . '/sites/all/config/settings',
-    DRUPAL_ROOT . '/sites/default/config/settings',
   ));
 
   // Name of the site's dir should be in format:
