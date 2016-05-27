@@ -112,15 +112,20 @@ function _drubone_infrastructure_instance_config($project, $instance) {
   return _drubone_config_get(array('infrastructure', 'projects', $project, 'instances', $instance), array());
 }
 
+function _drubone_infrastructure_instance_environment_config($project, $instance, $environment) {
+  return _drubone_config_get(array('infrastructure', 'projects', $project, 'instances', $instance, 'environments', $environment), array());
+}
+
 function _drubone_infrastructure_config($env, $project, $instance, $site = NULL) {
   $environment_config = _drubone_infrastructure_environment_config($env);
   $config = array(
-    'server'      => _drubone_infrastructure_server_config($environment_config['server']),
-    'environment' => $environment_config,
-    'project'     => _drubone_infrastructure_project_config($env, $project, $instance),
-    'projects'    => _drubone_infrastructure_get_projects($project),
-    'instance'    => _drubone_infrastructure_instance_config($project, $instance),
-    'site'        => _drubone_infrastructure_site_config($site),
+    'server'       => _drubone_infrastructure_server_config($environment_config['server']),
+    'environment'  => $environment_config,
+    'project'      => _drubone_infrastructure_project_config($env, $project, $instance),
+    'projects'     => _drubone_infrastructure_get_projects($project),
+    'instance'     => _drubone_infrastructure_instance_config($project, $instance),
+    'instance.env' => _drubone_infrastructure_instance_environment_config($project, $instance, $env),
+    'site'         => _drubone_infrastructure_site_config($site),
   );
 
   $params = array();
