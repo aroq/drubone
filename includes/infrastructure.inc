@@ -19,7 +19,12 @@ function _drubone_infrastructure_get_sites() {
           foreach ($clone['environments'] as $env => $environment) {
             foreach ($environment['sites'] as $group_name => $group) {
               foreach ($group['urls'] as $url) {
-                $sites[$url] = $project_dir_name . _drubone_config_get(array('infrastructure', 'site_name_separator'), '.') . $clone_name;
+                if ($clone_name == 'default') {
+                  $sites[$url] = $project_dir_name;
+                }
+                else {
+                  $sites[$url] = $project_dir_name . _drubone_config_get(array('infrastructure', 'site_name_separator'), '.') . $clone_name;
+                }
               }
             }
           }

@@ -73,6 +73,7 @@ function _instance_settings_init_params($site_path) {
 
   $dir_name_parts = preg_split("/[-_,\. ]/", $project_name);
 
+
   $default_values['project_names'] = array();
   foreach ($dir_name_parts as $name_part) {
     foreach ($default_values['project_names'] as $pname) {
@@ -81,7 +82,12 @@ function _instance_settings_init_params($site_path) {
     $default_values['project_names'][] = $name_part;
   }
 
-  $default_values['instance'] = array_pop($dir_name_parts);
+  if (count($dir_name_parts) == 1) {
+    $default_values['instance'] = 'default';
+  }
+  else {
+    $default_values['instance'] = array_pop($dir_name_parts);
+  }
 
   $default_values['project'] = $dir_name_parts ? implode('.', $dir_name_parts) : $default_values['instance'];
   $default_values['projects'] = array();
