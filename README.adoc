@@ -8,6 +8,10 @@
 
 * Customisable and manageable environment-specific (and any other custom specific parameters possible) settings files (environment indicators, standard caching settings, etc) in both YAML & PHP formats;
 
+* Drubone is highly configurable, so you can setup it in any specific way that will suit demands of your project or you can just use it from the box;
+
+* Works for both Drupal 7 & 8;
+
 * Some examples of using Drubone:
 
 ** You can have URL-specific settings file (in PHP format) that will be included for specific URLs only (useful if you need specific settings for some of the pages/subdomains/domains) OR:
@@ -15,8 +19,4 @@
 ** You can add URL-specific settings in YAML configuration file;
 
 ** You can override any of the Drupal settings in YAML format in single file for every site in setup, or for every site in specific environment or use any other combination of server, environment, instance, etc;
-
-** Drubone is highly configurable, so you can setup it in any specific way that will suit demands of your project or you can just use it from the box;
-
-** Works for both Drupal 7 & 8;
 
