@@ -1,4 +1,4 @@
-= Drubone - universal solution to manage configuration for multi-site and single-site docroot setups
+= Drubone - universal solution for Drupal to manage configuration for multi-site and single-site docroot setups
 
 == Features from the box:
 
