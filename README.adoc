@@ -23,8 +23,8 @@
 ** You can override any of the Drupal settings in YAML format in single file for every site in setup, or for every site in specific environment or use any other combination of server, environment, instance, etc;
 
 == Example of simple config file
-
 [source,yaml]
+.infrastructure.yaml
 ----
 ---
 servers:
@@ -90,10 +90,10 @@ projects:
                   - PLACEHOLDER:REMOTE:HOST
 ----
 
-== Example of local overridden settings
-
+== Example of local overridden settings file
 
 [source,yaml]
+.local.infrastructure.yaml
 ----
 ---
 servers:
