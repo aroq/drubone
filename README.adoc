@@ -10,6 +10,8 @@
 
 * Drubone is highly configurable, so you can setup it in any specific way that will suit demands of your project or you can just use it from the box;
 
+* Every developer in the team can override some of the settings on his development PC only (useful for local development/debugging);
+
 * Works for both Drupal 7 & 8;
 
 * Some examples of using Drubone:
@@ -86,4 +88,25 @@ projects:
               main:
                 urls:
                   - PLACEHOLDER:REMOTE:HOST
+----
+
+== Example of local overridden settings
+
+
+[source,yaml]
+----
+---
+servers:
+  main:
+    alias:
+      remote-user: PLACEHOLDER.REMOTE.USER
+  extra:
+    alias:
+      remote-user: PLACEHOLDER.REMOTE.USER
+
+databases:
+  local:
+    database: PLACEHOLDER.REMOTE.DB
+    username: PLACEHOLDER.REMOTE.USER
+    password: PLACEHOLDER.REMOTE.PASSWORD
 ----
