@@ -2,11 +2,11 @@
 
 == Features from the box:
 
-* Drush aliases generator for multi-site (and single-site) setups based on /sites directory using standard schema (you only need to configure servers IPs / SSH user / path to docroot on server to make local & remote aliases work for every site in setup, e.g. you can have @local.site1.en, @local.site1.fr, @dev.site1.en, @dev.site1.fr, @prod.site1.en, @prod.site1.fr aliases without the need to configure each site separately);
+* Drush aliases generator for multi-site (and single-site) setups based on /sites directory using standard schema (_you only need to configure servers IPs / SSH user / path to docroot on server to make local & remote aliases work for every site in setup, e.g. you can have @local.site1.en, @local.site1.fr, @dev.site1.en, @dev.site1.fr, @prod.site1.en, @prod.site1.fr aliases without the need to configure each site separately_);
 
-* Multisite setup configuration in YAML format instead of lacking extended configuration capabilities default sites.php file;
+* Multisite setup configuration in YAML format instead of lacking extended configuration capabilities default sites.php file, allowing to provide andy additional settings for each site/URL;
 
-* Customisable and manageable environment-specific (and any other custom specific parameters possible) settings files (environment indicators, standard caching settings, etc) in both YAML & PHP formats;
+* Customisable and manageable environment-specific (and any other custom specific parameters possible) settings files (_environment indicators, standard caching settings, etc_) in both YAML & PHP formats;
 
 * Drubone is highly configurable, so you can setup it in any specific way that will suit demands of your project or you can just use it from the box;
 
