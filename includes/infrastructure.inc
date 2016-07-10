@@ -124,6 +124,7 @@ function _drubone_infrastructure_instance_environment_config($project, $instance
 function _drubone_infrastructure_config($env, $project, $instance, $site = NULL) {
   $environment_config = _drubone_infrastructure_environment_config($env);
   $config = array(
+    'default'      => _drubone_config_get(array('infrastructure', 'default'), array()),
     'server'       => _drubone_infrastructure_server_config($environment_config['server']),
     'environment'  => $environment_config,
     'project'      => _drubone_infrastructure_project_config($env, $project, $instance),

@@ -24,7 +24,12 @@ if (function_exists('_drubone_infrastructure_config')) {
   }
   if (isset($config['drubone.settings']['params']['conf']) && is_array($config['drubone.settings']['params']['conf'])) {
     foreach ($config['drubone.settings']['params']['conf'] as $param_name => $param_value) {
-      $config[$param_name] = $param_value;
+      if (is_array($config[$param_name]) && is_array($param_value)) {
+        $config[$param_name] = _drubone_array_deep_merge(array($config[$param_name], $param_value));
+      }
+      else {
+        $config[$param_name] = $param_value;
+      }
     }
   }
 }
