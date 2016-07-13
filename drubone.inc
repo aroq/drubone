@@ -91,6 +91,10 @@ function _drubone_config_get($arg, $default = NULL) {
   }
 }
 
+function drubone_get(&$var, $default = null) {
+  return isset($var) ? $var : $default;
+}
+
 function _drubone_include($filename, $params = array()) {
   $filepath = DRUBONE_DIR_FULL . '/includes/' . $filename;
   if (is_file($filepath)) {
