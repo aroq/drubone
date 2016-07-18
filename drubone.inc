@@ -79,10 +79,12 @@ function &_drubone_config($config = array()) {
   return $conf;
 }
 
-function _drubone_config_get($arg, $default = NULL) {
-  $config = _drubone_config();
+function _drubone_config_get($arg, $default = NULL, $config = NULL) {
+  if (!isset($config)) {
+    $config = _drubone_config();
+  }
   if (is_string($arg)) {
-    return isset($config[$arg]) ? $config[$arg] : $default;
+    return drubone_get($config[$arg], $default);
   }
   elseif (is_array($arg)) {
     $key_exists = NULL;
