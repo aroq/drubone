@@ -1,0 +1,39 @@
+Version 0.1.0
+ - Added drubone_get function
+ - Added drubone_get function
+ - Merge branch 'master' of https://github.com/aroq/drubone
+ - Added default params handling & better settings merges
+ - Updated readme
+ - Updated readme
+ - Updated readme
+ - Updated readme
+ - Updated readme
+ - Updated readme
+ - Added readme
+ - Added default instance logic
+ - Added instance env config
+ - Added default settings dirs
+ - Added drupal8 specific includes including instance settings functionality
+ - Added drupal8 include file
+ - Added drubone.sh & removed drupal8core.sh
+ - Merge branch 'project-name-changes'
+ - Project name changes & added site dirname prefix param
+ - Merge pull request #1 from zestagio/path-patterns
+ - Added path patterns to infrastructure
+ - Changed drupal7 make file name
+ - Changed drupal core script
+ - Added drupal8 support
+ - Changed autoload path
+ - updated drubonize script
+ - Changed vendor path
+ - Changed drubonize script
+ - Changed drubonize script
+ - Sites.php refactoring
+ - Removed drubone symlinks
+ - Updated database settings
+ - Added group name into site config
+ - Changed site config logic
+ - Changed .gitignore
+ - Initial commit
+ - Initial commit
+
