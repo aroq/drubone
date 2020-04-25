@@ -55,15 +55,17 @@
  */
 
 if (!function_exists('_drubone_get_drupal_root')) {
-  $drupal_root = function_exists('drush_main') ? drush_get_context('DRUSH_SELECTED_DRUPAL_ROOT') : DRUPAL_ROOT;
+  $drupal_root = DRUPAL_ROOT;
   define('DRUBONE_DIR', 'drubone');
-  define('DRUBONE_CONFIG_DIR', 'drubone.config');
-  define('DRUBONE_DRUPAL_ROOT', $drupal_root);
-  define('DRUBONE_ROOT', dirname($drupal_root));
-  define('DRUBONE_DIR_FULL', DRUBONE_ROOT . '/' . DRUBONE_DIR);
+  define('DRUBONE_CONFIG_DIR', 'code/common/config/drubone.config');
+  define('DRUBONE_DRUPAL_ROOT', DRUPAL_ROOT);
+  define('DRUBONE_ROOT', dirname(DRUPAL_ROOT));
+  define('DRUBONE_DIR_FULL', DRUBONE_ROOT . '/code/' . DRUBONE_DIR);
   define('DRUBONE_CONFIG_DIR_FULL', DRUBONE_ROOT . '/' . DRUBONE_CONFIG_DIR);
+
   require_once DRUBONE_DIR_FULL . '/drubone.inc';
   _drubone_load_component('infrastructure');
 }
 
 $sites = _drubone_infrastructure_get_sites();
+
