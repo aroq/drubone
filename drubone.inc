@@ -122,7 +122,13 @@ function _drubone_array_deep_merge($arrays) {
       }
       // Recurse when both values are arrays.
       elseif (isset($result[$key]) && is_array($result[$key]) && is_array($value)) {
-        $result[$key] = _drubone_array_deep_merge(array($result[$key], $value));
+        if (isset($value['override']) && $value['override'] === TRUE) {
+          unset($value['override']);
+          $result[$key] = $value;
+        }
+        else {
+          $result[$key] = _drubone_array_deep_merge(array($result[$key], $value));
+        }
       }
       // Otherwise, use the latter value, overriding any previous value.
       else {
